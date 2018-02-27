@@ -1,4 +1,5 @@
 var map, infoWindow;
+  var marker;
 function initMap() {
 
   var latitude = Number(document.getElementById('latField').textContent);
@@ -29,9 +30,9 @@ function initMap() {
        var icon = document.getElementById("iconChosen").value;
        chooseMarker(icon);
 
-       marker.addListener('click', function() {
-         infoWindow.open(map, marker);
-       });
+        marker.addListener('click', function() {
+          infoWindow.open(map, marker);
+        });
 
 }
 
@@ -47,7 +48,7 @@ function chooseMarker(icon) {
   console.log(icon);
   if (icon == 1) {
     document.getElementById("colorChosen").disabled = true;
-    var marker = new google.maps.Marker({
+    marker = new google.maps.Marker({
       map: map,
       position: pos
     });
@@ -63,7 +64,7 @@ function chooseMarker(icon) {
       fillColor = "#800080";
       strokeColor = "#800080";
     }
-    var marker = new google.maps.Marker({
+    marker = new google.maps.Marker({
       position: pos,
       map: map,
       icon: {
